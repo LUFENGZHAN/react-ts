@@ -26,6 +26,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 <div className="App-header">
+  刚开始学习react
     <img src={log} className="App-logo" alt="logo" />
     <Table characters={characters} />
   </div>
