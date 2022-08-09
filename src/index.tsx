@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Table from './views/Table'
+import Table from './page/Table'
 import log from './assets/images/logo.svg'
 import './assets/css/index.css';
 const characters = [

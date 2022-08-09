@@ -7,6 +7,11 @@ body {
 body .App {
   text-align: center;
 }
+body .pap {
+  font-size: 19px;
+  font-weight: bold;
+  color: #00aeff;
+}
 body .App-logo {
   height: 40vmin;
   pointer-events: none;

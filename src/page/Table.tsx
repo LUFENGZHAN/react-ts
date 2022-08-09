@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import Form from './From';
+import '../assets/css/index.css';
+
 const Renders=({initialState}:any) => {
   const { name, job } = initialState.state.initialState;
   return (
@@ -51,7 +53,10 @@ const TableBody = (e:any) => {
 }
 
 class App extends Component {
-  // componentDidMount() {
+  componentDidMount() {
+    setInterval(() =>{
+      this.setState({num:new Date()})
+     },1000) 
   //   const url ='https://www.fastmock.site/mock/ae8e9031947a302fed5f92425995aa19/jd/api/shop/hot-list'
   //   fetch(url)
   //     .then((result) => result.json())
@@ -61,9 +66,10 @@ class App extends Component {
   //         data: result,
   //       })
   //     })
-  // }
+  }
   props:any
   state:any = {
+    num: new Date(),
     asd: 0,
     characters: [
       {
@@ -112,6 +118,7 @@ class App extends Component {
     const { characters } = this.state;
     return (
       <div style={{ width: '90%', textAlign: 'center' }}>
+        <p className="pap">{this.state.num.toLocaleTimeString()}</p>
         {/* <Form handleSubmit={this.handleSubmit}></Form> */}
         <Renders initialState={this}></Renders>
         {this.state.asd}

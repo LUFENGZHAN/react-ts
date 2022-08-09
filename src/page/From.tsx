@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 console.log(React.createRef());
 class Form extends Component <any>{
     initialState: { name: string; job: string; };
+            // 定义初始状态
     constructor(props: any) {
         console.log(props);
         super(props);
@@ -12,6 +13,10 @@ class Form extends Component <any>{
         };
 
         this.state = this.initialState;
+    }
+    // 组件初次渲染完成
+    componentDidMount() {
+
     }
 
     handleChange = (event: { target: { name: any; value: any; }; }) => {
@@ -28,7 +33,7 @@ class Form extends Component <any>{
         this.props.handleSubmit(this.state);
         this.setState(this.initialState);
     }
-
+    // 组件渲染
     render() {
         console.log(this);
         const { name, job }:any = this.state;
@@ -54,6 +59,14 @@ class Form extends Component <any>{
                 </button>
             </form>
         );
+    }
+    // 组件完成更新
+    componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<{}>, snapshot?: any): void {
+        console.log(prevProps,prevState,snapshot);
+    }
+    // 组件卸载
+    componentWillUnmount() {
+        
     }
 }
 export default Form
