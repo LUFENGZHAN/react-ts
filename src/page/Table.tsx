@@ -53,9 +53,9 @@ const TableBody = (e:any) => {
   })
   return <tbody>{rows}</tbody>
 }
-let axio = axios.create({baseURL:"https://localhost:3000"})
+let axio = axios.create({baseURL:"https://www.fastmock.site/mock/ae8e9031947a302fed5f92425995aa19/jd/api/shop"})
 axio.defaults.timeout = 2500;
-axio.get("/user").then(res=>{
+axio.get("/hot-list").then(res=>{
   console.log(res.data);
 })
 class App extends Component {
