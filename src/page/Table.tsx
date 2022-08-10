@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Form from './From';
 import '../assets/css/index.css';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import axios from 'axios'
 
 const Renders=({initialState}:any) => {
   const { name, job } = initialState.state.initialState;
@@ -51,21 +53,16 @@ const TableBody = (e:any) => {
   })
   return <tbody>{rows}</tbody>
 }
-
+let axio = axios.create({baseURL:"https://localhost:3000"})
+axio.defaults.timeout = 2500;
+axio.get("/user").then(res=>{
+  console.log(res.data);
+})
 class App extends Component {
   componentDidMount() {
     setInterval(() =>{
       this.setState({num:new Date()})
-     },1000) 
-  //   const url ='https://www.fastmock.site/mock/ae8e9031947a302fed5f92425995aa19/jd/api/shop/hot-list'
-  //   fetch(url)
-  //     .then((result) => result.json())
-  //     .then((result) => {
-  //       console.log(result);
-  //       this.setState({
-  //         data: result,
-  //       })
-  //     })
+     },1000)
   }
   props:any
   state:any = {
@@ -75,7 +72,6 @@ class App extends Component {
       {
         name: 'Charlie',
         job: 'sdf',
-
       },
     ],
     initialState: {
