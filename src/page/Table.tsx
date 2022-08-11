@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Form from './From';
 import '../assets/css/index.css';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import axios from 'axios'
 import {config} from '../service/request'
 
 const Renders=({initialState}:any) => {
@@ -56,14 +55,12 @@ const TableBody = (e:any) => {
 }
 class App extends Component {
   componentDidMount() {
-    config.get('/user').then(res =>{
-      console.log(res.data);
-    let data = Object.assign( {},this.state.initialState,{ name:res.data[0].username, job:res.data[0].password})
-      this.setState({initialState:data})
+    config.get('/api/signin').then(res =>{
+      this.setState({images:res.data.data.userInfo})
     })
-    setInterval(() =>{
-      this.setState({num:new Date()})
-     },1000)
+    // setInterval(() =>{
+    //   this.setState({num:new Date()})
+    //  },1000)
   }
   props:any
   state:any = {
@@ -78,7 +75,8 @@ class App extends Component {
     initialState: {
       name: '',
       job: '',
-    }
+    },
+    images:{}
   }
   removeCharacter = (index:any) => {
     const { characters } = this.state
@@ -112,11 +110,12 @@ class App extends Component {
     this.setState({ characters: [...this.props.characters] })
   }
   render() {
-    const { characters } = this.state;
+    const { characters } = this.state;  
     return (
       <div style={{ width: '90%', textAlign: 'center' }}>
         <p className="pap">{this.state.num.toLocaleTimeString()}</p>
         {/* <Form handleSubmit={this.handleSubmit}></Form> */}
+        <img src={this.state.images.avator} width='150' alt="" />
         <Renders initialState={this}></Renders>
         {this.state.asd}
         <button onClick={this.aa} style={{ cursor: 'pointer', width: '100%', textAlign: 'center' }}>点击刷新</button>
