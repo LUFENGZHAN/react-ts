@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Form from './From';
 import '../assets/css/index.css';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import {config} from '../service/request'
+import api from '../service/request'
+import {sendAction} from '../store/action'
+import { store } from "../store/store";
 
 const Renders=({initialState}:any) => {
   const { name, job } = initialState.state.initialState;
@@ -55,14 +56,18 @@ const TableBody = (e:any) => {
 }
 class App extends Component {
   componentDidMount() {
-    config.get('/api/signin').then(res =>{
+    api.get('/api/signin').then((res) =>{      
       this.setState({images:res.data.data.userInfo})
     })
-    // setInterval(() =>{
+    api.post('/api/login',{username:'admin',password:'123456'}).then((res) =>{
+      console.log(res);   
+    })
+    // this.interval = setInterval(() =>{
     //   this.setState({num:new Date()})
     //  },1000)
   }
   props:any
+  interval:any
   state:any = {
     num: new Date(),
     asd: 0,
@@ -106,11 +111,13 @@ class App extends Component {
     })
   }
   aa = () => {
+    const action = sendAction()
+    store.dispatch(action)
     this.setState({ asd: (this.state.asd===0?1:this.state.asd)*2 })
     this.setState({ characters: [...this.props.characters] })
   }
   render() {
-    const { characters } = this.state;  
+    const { characters } = this.state;     
     return (
       <div style={{ width: '90%', textAlign: 'center' }}>
         <p className="pap">{this.state.num.toLocaleTimeString()}</p>
@@ -118,6 +125,7 @@ class App extends Component {
         <img src={this.state.images.avator} width='150' alt="" />
         <Renders initialState={this}></Renders>
         {this.state.asd}
+        {store.getState().value}
         <button onClick={this.aa} style={{ cursor: 'pointer', width: '100%', textAlign: 'center' }}>点击刷新</button>
         <table border={1} style={{ width: '100%', textAlign: 'center' }}>
           <TableHeader />
@@ -127,4 +135,4 @@ class App extends Component {
     )
   }
 }
-export default App;
+export default App; 
