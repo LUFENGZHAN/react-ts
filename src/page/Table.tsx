@@ -3,6 +3,7 @@ import Form from './From';
 import '../assets/css/index.css';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import axios from 'axios'
+import {config} from '../service/request'
 
 const Renders=({initialState}:any) => {
   const { name, job } = initialState.state.initialState;
@@ -53,13 +54,13 @@ const TableBody = (e:any) => {
   })
   return <tbody>{rows}</tbody>
 }
-let axio = axios.create({baseURL:"https://www.fastmock.site/mock/ae8e9031947a302fed5f92425995aa19/jd/api/shop"})
-axio.defaults.timeout = 2500;
-axio.get("/hot-list").then(res=>{
-  console.log(res.data);
-})
 class App extends Component {
   componentDidMount() {
+    config.get('/user').then(res =>{
+      console.log(res.data);
+    let data = Object.assign( {},this.state.initialState,{ name:res.data[0].username, job:res.data[0].password})
+      this.setState({initialState:data})
+    })
     setInterval(() =>{
       this.setState({num:new Date()})
      },1000)
