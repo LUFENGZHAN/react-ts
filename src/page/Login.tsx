@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class index extends Component {
+class Login extends Component {
     render() {
         return (
             <div>
-                home
+                login
             </div>
         );
     }
 }
 
-export default index;
+export default Login;

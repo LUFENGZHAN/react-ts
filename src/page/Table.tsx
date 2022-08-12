@@ -60,7 +60,11 @@ class App extends Component {
       this.setState({images:res.data.data.userInfo})
     })
     api.post('/api/login',{username:'admin',password:'123456'}).then((res) =>{
-      console.log(res);   
+    window.localStorage.getItem(res.data.data.token)
+      console.log();  
+      
+    console.log(window.localStorage);
+
     })
     // this.interval = setInterval(() =>{
     //   this.setState({num:new Date()})
