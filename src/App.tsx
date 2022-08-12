@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink ,HashRouter } from 'react-router-dom'
-import Router from './router/index'
+import Routevive from './router/index'
 import './ACC.css'
 export default class App extends Component {
   links({isActive}:any){
@@ -14,10 +14,11 @@ export default class App extends Component {
         
         <HashRouter>
           <div>
-            <NavLink  to='/indexs' className={this.links}>首页</NavLink>
-            <NavLink  to='/about' className={this.links}>目录</NavLink>
+            <NavLink  to='/' className={this.links}>首页</NavLink>
+            <NavLink  to='/Login' className={this.links}>目录</NavLink>
+            <NavLink  to='/List' className={this.links}>列表</NavLink>
           </div>
-          <Router/>
+          <Routevive/>
         </HashRouter>
       </div>
     )

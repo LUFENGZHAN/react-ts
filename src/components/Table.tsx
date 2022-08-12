@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Form from './From';
-import '../assets/css/index.css';
+import '../css/index.css';
 import api from '../service/request'
 import {sendAction} from '../store/action'
 import { store } from "../store/store";

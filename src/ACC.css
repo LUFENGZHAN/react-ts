@@ -2,5 +2,8 @@
     color: red;
 }
 .base{
-    color:yellow;
+    color:rgb(0, 81, 255);
+}
+a{
+    text-decoration:none;
 }

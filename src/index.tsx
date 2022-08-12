@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Table from './components/Table'
 import App from './App'
-import log from './assets/images/logo.svg'
-import './assets/css/index.css';
+import log from './images/logo.svg'
+import './css/index.css';
 const characters = [
   {
     name: 'Charlie',
