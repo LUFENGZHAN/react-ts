@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
 import { NavLink ,HashRouter } from 'react-router-dom'
 import Routevive from './router/index'
-import './ACC.css'
+import './App.css'
 export default class App extends Component {
   links({isActive}:any){
     console.log(isActive);
-    return isActive ? 'aa' : 'base'
+    return isActive ? 'aa' : ''
 
   }
   render() {    
     return (
       <div>
-        
         <HashRouter>
           <div>
             <NavLink  to='/' className={this.links}>首页</NavLink>

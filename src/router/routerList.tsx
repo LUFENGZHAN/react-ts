@@ -1,6 +1,5 @@
 import Home from '../page/Home';
 import Login from '../page/Login';
-import List from '../page/List';
 
 const otherRouter = [
   {
@@ -30,10 +29,5 @@ const pageRouter = [
     title: '用户登陆',
     element: <Login />
   },
-  {
-    path: '/list',
-    title: '列表',
-    element: <List />
-  }
 ];
 export { otherRouter, pageRouter };
