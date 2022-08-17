@@ -3,7 +3,7 @@ import style from './login.module.scss'
 class Login extends Component {
     render() {
         return (
-            <div>
+            <div className={style.container}>
                 login
             </div>
         );

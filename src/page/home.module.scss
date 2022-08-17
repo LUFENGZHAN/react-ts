@@ -1,9 +1,7 @@
 $width: 100px;
 .aa{
     width: $width;
-    background-color: red;
     .bb{
-        height: 1900px;
         width: $width;
         background-color:yellow;
         & p{
