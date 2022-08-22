@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import style from './home.module.scss';
-import { NavLink, HashRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Bg from 'particles-bg'
 import { links, route } from '../App'
 const Router = (data: any): any => {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {HashRouter } from 'react-router-dom'
 import Routevive from './router/index'
 import './App.css'
 export  function links({isActive}:any){
@@ -13,8 +14,11 @@ export default class App extends Component {
   render() {    
     return (
       <div>
-          <Routevive/>
+        <HashRouter>
+            <Routevive/>
+        </HashRouter>
       </div>
+
     )
   }
 }
