@@ -6,8 +6,7 @@ export  function links({isActive}:any){
   return isActive ? 'aa' : ''
 
 }
-export const route= [ {to: '/',name: '首页',},
-{to: '/login',name: '登录',},
+export const route= [ {to: '/home',name: '首页',},
 {to: '/game-center',name: '游戏中心',},]
 export default class App extends Component {
 

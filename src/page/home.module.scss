@@ -2,12 +2,15 @@ $width: 100%;
 .aa{
     width: $width;
     .bb{
-        width: $width;
-        background-color:yellow;
-        & p{
-            width: $width;
-            background-color:saddlebrown;
-            color: green;
-        }
+        padding: 5px 20px;
+        color: rgb(142, 23, 23);
+        font-size: 22px;
+        background-color:#fff;
+    }
+    .cc{
+        padding: 5px 20px;
+        background-color:rgb(123, 17, 17);
+        font-size: 22px;
+
     }
 }   

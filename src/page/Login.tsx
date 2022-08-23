@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
+import React, {Component, useContext } from 'react';
 import { Button, Form,message, Input } from 'antd';
+import { NavLink,useNavigate } from 'react-router-dom'
+import { context } from '../components/AppPro';
 import style from './login.module.scss'
 import Bg from 'particles-bg'
 import 'antd/dist/antd.css';
 import  api  from '../service/request'
-class Login extends Component {
-    onFinish = (values: any) => {
+export default function Login () {
+    const to = useNavigate()
+    const {setilogin} = useContext<any>(context)
+
+    const onFinish = (values: any) => {
         api.post('/login',{...values}).then((res) => {
             if (res.data.code===0) {
-                console.log(res.data);
                 message.success(res.data.desc);
+                setilogin(true)
+                to('/home')
             } else {
                 message.error(res.data.data);
             }
         })
     };
 
-    onFinishFailed = (errorInfo: any) => {
+    const onFinishFailed = (errorInfo: any) => {
     };
-    render() {
         return (
             <div className={style.container}>
                 <div className={style.login}>
@@ -27,8 +32,8 @@ class Login extends Component {
                         labelCol={{ span: 8 }}
                         wrapperCol={{ span: 16 }}
                         initialValues={{ remember: true }}
-                        onFinish={this.onFinish}
-                        onFinishFailed={this.onFinishFailed}
+                        onFinish={onFinish}
+                        onFinishFailed={onFinishFailed}
                         autoComplete="off"
                     >
                         <Form.Item
@@ -57,6 +62,3 @@ class Login extends Component {
             </div>
         );
     }
-}
-
-export default Login;
