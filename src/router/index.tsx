@@ -10,8 +10,7 @@ export default class index extends Component {
     return (
         <Routes>
           <Route path="/" element={<Proislogin><Home/></Proislogin>}></Route>
-
-          <Route path="/home/*" element={<Proislogin><Home/></Proislogin>}></Route>
+          <Route path="/home/*" element={<Home/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/game-center" element={<GameCenter/>}></Route>
           <Route path="*" element={<NoPage/>}></Route>
