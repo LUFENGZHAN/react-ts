@@ -2,12 +2,6 @@ import React, { Component } from 'react'
 import {HashRouter } from 'react-router-dom'
 import Routevive from './router/index'
 import './App.css'
-export  function links({isActive}:any){
-  return isActive ? 'aa' : ''
-
-}
-export const route= [ {to: '/home',name: '首页',},
-{to: '/game-center',name: '游戏中心',},]
 export default class App extends Component {
 
   render() {    

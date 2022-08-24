@@ -1,8 +1,6 @@
 body{
     margin: 0;
     padding: 0;
-    background:url('./images/2.jpg') no-repeat center;
-
 }
 body::-webkit-scrollbar{
     display: none;

@@ -1,16 +1,7 @@
 $width: 100%;
-.aa{
+.container{
     width: $width;
-    .bb{
-        padding: 5px 20px;
-        color: rgb(142, 23, 23);
-        font-size: 22px;
-        background-color:#fff;
-    }
-    .cc{
-        padding: 5px 20px;
-        background-color:rgb(123, 17, 17);
-        font-size: 22px;
-
-    }
+    height: 760px;;
+    background: url('../images/20.jpg')no-repeat center;
+    opacity: 0.9;
 }   

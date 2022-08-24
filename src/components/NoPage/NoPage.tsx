@@ -1,7 +1,7 @@
 import React from 'react'
-
+import { Empty } from 'antd';
 export default function NoPage() {
   return (
-    <div>404NoPage</div>
+    <div><Empty /></div>
   )
 }

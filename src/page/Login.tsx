@@ -1,6 +1,6 @@
-import React, {Component, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Button, Form,message, Input } from 'antd';
-import { NavLink,useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { context } from '../components/AppPro';
 import style from './login.module.scss'
 import Bg from 'particles-bg'
@@ -39,6 +39,7 @@ export default function Login () {
                         <Form.Item
                             label="账号"
                             name="username"
+                            initialValue="admin"
                             rules={[{ required: true, message: '请输入账号!' }]}
                         >
                             <Input />
@@ -47,6 +48,7 @@ export default function Login () {
                         <Form.Item
                             label="密码"
                             name="password"
+                            initialValue="123456"
                             rules={[{ required: true, message: '请输入密码!' }]}
                         >
                             <Input.Password />
