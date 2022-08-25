@@ -15,7 +15,7 @@ export default function Login () {
             if (res.data.code===0) {
                 message.success(res.data.desc);
                 setilogin(true)
-                to('/home')
+                to('/visualization')
             } else {
                 message.error(res.data.data);
             }

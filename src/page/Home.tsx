@@ -16,11 +16,11 @@ class Home extends Component {
                 <div>
                     <NavLink to=''>home1</NavLink>
                     <NavLink to='/home/home2'>home2</NavLink>
-                <Routes>
-                    <Route path="" element={<Home1/>}></Route>
-                    <Route path="home2" element={<Home2/>}></Route>
-                    <Route path="*" element={<Navigate to="/404" />}></Route>
-                </Routes>
+                    <Routes>
+                        <Route path="" element={<Home1/>}></Route>
+                        <Route path="home2" element={<Home2/>}></Route>
+                        <Route path="*" element={<Navigate to="/404" />}></Route>
+                    </Routes>
                 </div>
                 <Bg type="cobweb" bg={true} />
             </div>
