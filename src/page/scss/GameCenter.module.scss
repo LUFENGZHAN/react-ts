@@ -1,5 +1,25 @@
 .container{
     width: 100%;
+    .text{
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .imge{
+      height: 32px;
+      width: 156px;
+      margin: 0 15px 0 0;
+      background: rgb(110, 15, 15);
+    }
+    .userlog{
+      width: 40px;
+      border-radius: 50%;
+      margin: 0 15px 0 0;
+    }
+    :global(.ant-layout-header){
+      padding: 0 28px;
+    }
     #components-layout-demo-custom-trigger .trigger {
         padding: 0 34px;
         font-size: 18px;

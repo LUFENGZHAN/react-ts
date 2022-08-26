@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import style from './home.module.scss';
+import { Component } from 'react';
+import style from './scss/home.module.scss';
 import { NavLink,Routes,Route,Navigate } from 'react-router-dom'
 import Bg from 'particles-bg'
 import Navigation from '../components/navigation/Navigation'

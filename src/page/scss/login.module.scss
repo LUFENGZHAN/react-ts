@@ -1,14 +1,14 @@
 .container{
     overflow: hidden;
     height: 760px;
-    background:url('../images/2.jpg') no-repeat center;
+    background:url('../../images/2.jpg') no-repeat center;
     opacity: 0.9;
     .login{
         width: 45%;
         height: 500px; 
         display: flex;  
         margin:10% auto 0;
-        background:url('../images/19.jpg')no-repeat center ;
+        background:url('../../images/19.jpg')no-repeat center ;
         opacity: 0.8;
         align-items: center;
         :global(.ant-form-item){

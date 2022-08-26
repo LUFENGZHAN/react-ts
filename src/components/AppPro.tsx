@@ -1,8 +1,6 @@
-import { useState, createContext, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, createContext } from 'react'
 export const context = createContext({})
 function AppPro({ children }: any) {
-    // const to =useNavigate()
     const [islogin, setilogin] = useState(false)
     return (
         <context.Provider value={{ islogin, setilogin }}>
