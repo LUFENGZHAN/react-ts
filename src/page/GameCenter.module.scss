@@ -1,3 +1,24 @@
 .container{
     width: 100%;
+    #components-layout-demo-custom-trigger .trigger {
+        padding: 0 34px;
+        font-size: 18px;
+        line-height: 64px;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+      
+      #components-layout-demo-custom-trigger .trigger:hover {
+        color: #1890ff;
+      }
+      
+      #components-layout-demo-custom-trigger .logo {
+        height: 42px;
+        margin: 26px;
+        background: rgba(255, 255, 255, 0.3);
+      }
+      
+      .site-layout .site-layout-background {
+        background: #fff;
+      }
 }
