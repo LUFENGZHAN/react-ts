@@ -1,23 +1,26 @@
 import { useRef, useEffect, useState } from 'react'
 import { Layout, Menu } from 'antd';
 import style from './scss/GameCenter.module.scss'
-import { useNavigate, Link, Routes, Route } from 'react-router-dom'
+import { useNavigate, Link, Routes, Route, Navigate } from 'react-router-dom'
 import ListOne from '../components/GameCenter/ListOne';
 import ListTwe from '../components/GameCenter/ListTwe';
 import log from '../images/1.jpg'
 const { Header, Content, Sider } = Layout;
-
 const App: any = (data: any) => {
   return (
     <Layout>
       <Header className={[style["site-layout-background"], style.text].join(' ')}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div className={style.imge} />
-          <div style={{ display: 'inline-block', cursor: 'pointer' }} ref={data.dva} onClick={() => data.the(1)}>首页</div>
+          <div className={style.imge} >
+            <div style={{ display: 'inline-block', cursor: 'pointer' }} ref={data.dva} onClick={() => data.the(1)}>返回首页</div>
+          </div>
         </div>
-        <div>
+        <div className={style.rigth}>
           <img className={style.userlog} src={log} alt='log' />
-          <div style={{ display: 'inline-block', cursor: 'pointer' }} ref={data.dva} onClick={() => data.the(2)}>你好小站</div>
+          <div className={style.hide} style={{ display: 'inline-block', cursor: 'pointer' }} >你好小站</div>
+          <div className={style.abe}>
+            <span ref={data.dva} onClick={() => data.the(2)}>退出登录</span>
+          </div>
         </div>
       </Header>
       <Layout className={style["site-layout"]}>
@@ -28,7 +31,7 @@ const App: any = (data: any) => {
             mode="inline"
             defaultSelectedKeys={['1']}
           >
-            <Menu.Item key="1"> <Link to="/game-center/ListOne">列表一</Link></Menu.Item>
+            <Menu.Item key="1"> <Link to="/game-center">列表一</Link></Menu.Item>
             <Menu.Item key="2"> <Link to="/game-center/ListTwe">列表二</Link></Menu.Item>
           </Menu>
         </Sider>
@@ -42,8 +45,9 @@ const App: any = (data: any) => {
           }}
         >
           <Routes>
-            <Route path="ListOne" element={<ListOne />} />
+            <Route path="/" element={<ListOne />} />
             <Route path="ListTwe" element={<ListTwe />} />
+            <Route path="*" element={<Navigate to="/404" />}></Route>
           </Routes>
         </Content>
       </Layout>
@@ -57,14 +61,14 @@ export default function GameCenter() {
   },)
   const to = useNavigate()
   const the: any = (e: number) => {
-switch (e) {
-  case 1:
-    to('/home')
-    return
-  case 2:
-    to('/login')
-    return 
-}
+    switch (e) {
+      case 1:
+        to('/home')
+        return
+      case 2:
+        to('/login')
+        return
+    }
   }
   return (
     <div className={style.container}>

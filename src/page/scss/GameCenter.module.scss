@@ -7,10 +7,33 @@
       justify-content: space-between;
     }
     .imge{
-      height: 32px;
       width: 156px;
       margin: 0 15px 0 0;
-      background: rgb(110, 15, 15);
+      // background: rgb(110, 15, 15);
+      & div{
+        font-size: 30px;
+        width: 190px;
+        text-align: center;
+        background: -webkit-linear-gradient(left, #0f0, #00f) 0 0 no-repeat;
+        /*设置线性渐变*/
+        -webkit-background-size: 52px;
+        /*设置背景大小*/
+        -webkit-background-clip: text;
+        /*背景被裁剪到文字*/
+        -webkit-text-fill-color: rgba(255, 255, 255, 0.3);
+        /*设置文字的填充颜色*/
+        -webkit-animation: shine 2.5s infinite alternate-reverse;
+      }
+      @keyframes shine {
+        /*创建动画*/
+        0% {
+            background-position: 0 0;
+        }
+
+        100% {
+            background-position: 100% 100%;
+        }
+    }
     }
     .userlog{
       width: 40px;
@@ -20,6 +43,45 @@
     :global(.ant-layout-header){
       padding: 0 28px;
     }
+    .rigth{
+      position: relative;
+      .hide:hover +.abe{
+        display: block;
+      }
+      .abe{
+        padding: 0;
+        margin: 0;
+        display: none;
+        line-height: 20px;
+        position: absolute;
+        background: rgb(228, 223, 223);
+        text-decoration: none;
+        list-style: none;
+        text-align: center;
+        color: rgb(19, 125, 125);
+        z-index: 99;
+        right: -15px;
+        top: 65px;
+        border-radius:10px;
+        &::after{
+          content: '';
+          position: absolute;
+          top: -20px;
+          left: 35px;
+          width: 0;
+          border: 10px solid transparent;
+          border-bottom: 10px solid rgb(234, 227, 227);
+
+        }
+        & span{
+          cursor: pointer;
+          text-align: center;
+          padding: 0 15px;
+          height: 20px;
+        }
+      }
+    }
+
     #components-layout-demo-custom-trigger .trigger {
         padding: 0 34px;
         font-size: 18px;
