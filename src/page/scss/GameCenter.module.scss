@@ -45,11 +45,11 @@
     }
     .rigth{
       position: relative;
-      .hide:hover +.abe{
+      &:hover .abe{
         display: block;
       }
       .abe{
-        padding: 0;
+        padding: 10px;
         margin: 0;
         display: none;
         line-height: 20px;
@@ -58,16 +58,16 @@
         text-decoration: none;
         list-style: none;
         text-align: center;
-        color: rgb(19, 125, 125);
+        color: red;
         z-index: 99;
         right: -15px;
-        top: 65px;
+        top: 55px;
         border-radius:10px;
         &::after{
           content: '';
           position: absolute;
           top: -20px;
-          left: 35px;
+          left: 50px;
           width: 0;
           border: 10px solid transparent;
           border-bottom: 10px solid rgb(234, 227, 227);
