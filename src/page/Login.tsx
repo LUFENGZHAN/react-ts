@@ -1,21 +1,22 @@
 import React, { useContext } from 'react';
 import { Button, Form,message, Input } from 'antd';
 import { useNavigate } from 'react-router-dom'
-import { context } from '../components/AppPro';
 import style from './scss/login.module.scss'
 import Bg from 'particles-bg'
 import 'antd/dist/antd.css';
 import  api  from '../service/request'
 export default function Login () {
     const to = useNavigate()
-    const {setilogin} = useContext<any>(context)
 
     const onFinish = (values: any) => {
         api.post('/login',{...values}).then((res) => {
             if (res.data.code===0) {
-                message.success(res.data.desc);
-                setilogin(true)
+                message.success(res.data.desc);       
+                window.localStorage.setItem('token',res.data.data.token)
                 to('/visualization')
+                if (window.localStorage.getItem('token')) {
+                    window.location.reload()
+                }
             } else {
                 message.error(res.data.data);
             }

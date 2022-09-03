@@ -61,11 +61,13 @@ export default function GameCenter() {
   },)
   const to = useNavigate()
   const the: any = (e: number) => {
+
     switch (e) {
       case 1:
         to('/home')
         return
       case 2:
+        window.localStorage.removeItem('token')
         to('/login')
         return
     }

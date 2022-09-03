@@ -1,8 +1,32 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { otherRouter, pageRouter } from './routerList';
 
-import React from 'react'
+const allRouter = [...pageRouter, ...otherRouter];
 
-export default function route() {
+export default function index() {
+  console.log(allRouter); 
+  // 提前封装好的路由配置函数
+  const renderRouter = (router: any[]) =>
+    router.map((item, index) =>
+      item.path ? (
+        <Route
+          key={index}
+          path={item.path}
+          element={item.element}
+          {...(item.props = {})}
+        >
+          {item.children && renderRouter(item.children)}
+        </Route>
+      ) : (
+        <Route
+          key={index}
+          path={item.from}
+          element={<Navigate to={item.to} replace />}
+        />
+      )
+    );
+
   return (
-    <div>route</div>
-  )
+      <Routes>{renderRouter(allRouter)}</Routes>
+  );
 }

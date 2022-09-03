@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import {HashRouter } from 'react-router-dom'
 import Routevive from './router/index'
 import './App.css'
-export default class App extends Component {
 
+export default class App extends Component {
+  componentWillMount( ) {
+    // window.location.reload()
+  }
   render() {    
     return (
       <div>

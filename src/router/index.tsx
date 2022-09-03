@@ -1,16 +1,15 @@
 import { Component } from 'react'
-import { Routes, Route} from 'react-router-dom';
+import { Routes, Route,Navigate} from 'react-router-dom';
 import Home from '../page/Home';
 import Login from '../page/Login';
 import Visualization from '../page/Visualization';
 import GameCenter from '../page/GameCenter';
 import NoPage from '../components/NoPage/NoPage';
-import Proislogin from '../components/Proislogin'
 export default class index extends Component {
   render() {
-    return (
+    return window.localStorage.getItem('token') ? (
         <Routes>
-          <Route path="/" element={<Proislogin><Visualization/></Proislogin>}></Route>
+          <Route path="/" element={<Visualization/>}></Route>
           <Route path="/home/*" element={<Home/>}></Route>
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/visualization" element={<Visualization/>}></Route>
@@ -18,6 +17,14 @@ export default class index extends Component {
           <Route path="*" element={<NoPage/>}></Route>
         </Routes>
 
+    ):(
+      <Routes>
+        <Route path="*" element={<Navigate to="/login" />}></Route>
+         <Route path="/login" element={<Login/>}></Route>
+      </Routes>
+
+      
     )
+
   }
 }
