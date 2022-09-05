@@ -3,8 +3,7 @@ import { NavLink } from 'react-router-dom'
 import style from './nav.module.scss'
 const route = [{ to: '/home', name: '首页', },
 { to: '/game-center', name: '游戏中心', },
-{ to: '/visualization', name: '大屏', },
-{ to: '/login', name: '退出登录', }]
+{ to: '/visualization', name: '大屏', }]
 function links({ isActive }: any) {
   return isActive ? style.aa : style.bb
 }

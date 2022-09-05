@@ -5,16 +5,14 @@ import Login from '../page/Login';
 import Visualization from '../page/Visualization';
 import GameCenter from '../page/GameCenter';
 import NoPage from '../components/NoPage/NoPage';
-let time = new Date().getTime();
-console.log(time);
-let timer=setTimeout(function() {
-  window.localStorage.removeItem('token');
-  window.location.reload();
-}, 360000);
-if (!window.localStorage.getItem('token')){
-  clearTimeout(timer)
-}
 export default class index extends Component {
+  componentDidMount() {
+    // 在window对象中添加监听事件
+    window.addEventListener('popstate', event=>{
+    console.log("location: " + window.location + ", state: ");
+
+    })
+ }
   render() {
     return window.localStorage.getItem('token') ? (
         <Routes>
