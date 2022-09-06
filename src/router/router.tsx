@@ -2,9 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { otherRouter, pageRouter } from './routerList';
 
 const allRouter = [...pageRouter, ...otherRouter];
-
 export default function index() {
-  console.log(allRouter); 
   // 提前封装好的路由配置函数
   const renderRouter = (router: any[]) =>
     router.map((item, index) =>
@@ -13,7 +11,7 @@ export default function index() {
           key={index}
           path={item.path}
           element={item.element}
-          {...(item.props = {})}
+          // {...(item.props = {})}
         >
           {item.children && renderRouter(item.children)}
         </Route>
@@ -21,7 +19,7 @@ export default function index() {
         <Route
           key={index}
           path={item.from}
-          element={<Navigate to={item.to} replace />}
+          element={<Navigate to={item.to} replace={true} />}
         />
       )
     );

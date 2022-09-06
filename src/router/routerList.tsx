@@ -1,8 +1,11 @@
+import {Navigate} from 'react-router-dom'
 import Home from '../page/Home';
 import Login from '../page/Login';
 import NoPage from '../components/NoPage/NoPage';
 import Visualization from '../page/Visualization';
 import GameCenter from '../page/GameCenter';
+import ListOne from '../components/GameCenter/ListOne';
+import ListTwe from '../components/GameCenter/ListTwe';
 const otherRouter = [
   {
     path: '/404',
@@ -22,7 +25,7 @@ const pageRouter = [
     element: <Visualization />
   },
     {
-    path: '/home/*',
+    path: '/home',
     title: '首页',
     element: <Home />,
   },
@@ -37,9 +40,26 @@ const pageRouter = [
     element: <Login />
   },
   {
-    path: '/game-center/*',
+    path: '/game-center',
     title: '游戏中心',
-    element: <GameCenter />
+    element: <GameCenter />,
+    children: [
+      {
+        path: "",
+        element: <Navigate to="ListOne" replace={true} />
+      },
+      {
+        path:'ListOne',
+        title:'列表一',
+        element: <ListOne />,
+      },
+      {
+        path:'ListTwe',
+        title:'列表二',
+        element: <ListTwe />,
+      }
+    ]
   }
 ];
+
 export { otherRouter, pageRouter }

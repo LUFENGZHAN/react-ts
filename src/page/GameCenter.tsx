@@ -1,9 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
 import { Layout, Menu } from 'antd';
 import style from './scss/GameCenter.module.scss'
-import { useNavigate, Link, Routes, Route, Navigate } from 'react-router-dom'
-import ListOne from '../components/GameCenter/ListOne';
-import ListTwe from '../components/GameCenter/ListTwe';
+import { useNavigate, NavLink,Outlet } from 'react-router-dom'
 import log from '../images/1.jpg'
 const { Header, Content, Sider } = Layout;
 const App: any = (data: any) => {
@@ -31,8 +29,8 @@ const App: any = (data: any) => {
             mode="inline"
             defaultSelectedKeys={['1']}
           >
-            <Menu.Item key="1"> <Link to="/game-center">列表一</Link></Menu.Item>
-            <Menu.Item key="2"> <Link to="/game-center/ListTwe">列表二</Link></Menu.Item>
+            <Menu.Item key="1"> <NavLink to="ListOne">列表一</NavLink></Menu.Item>
+            <Menu.Item key="2"> <NavLink to="ListTwe">列表二</NavLink></Menu.Item>
           </Menu>
         </Sider>
         <Content
@@ -44,11 +42,7 @@ const App: any = (data: any) => {
             minWidth: 1024,
           }}
         >
-          <Routes>
-            <Route path="/" element={<ListOne />} />
-            <Route path="ListTwe" element={<ListTwe />} />
-            <Route path="*" element={<Navigate to="/404" />}></Route>
-          </Routes>
+          <Outlet/>
         </Content>
       </Layout>
     </Layout>
