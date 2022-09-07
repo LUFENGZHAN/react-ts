@@ -29,7 +29,7 @@ const App: any = (data: any) => {
             mode="inline"
             defaultSelectedKeys={['1']}
           >
-            <Menu.Item key="1"> <NavLink to="ListOne">列表一</NavLink></Menu.Item>
+            <Menu.Item key="1"><NavLink to="">列表一</NavLink></Menu.Item>
             <Menu.Item key="2"> <NavLink to="ListTwe">列表二</NavLink></Menu.Item>
           </Menu>
         </Sider>
