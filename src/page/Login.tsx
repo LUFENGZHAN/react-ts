@@ -1,4 +1,3 @@
-import React, { useContext } from 'react';
 import { Button, Form,message, Input } from 'antd';
 import { useNavigate } from 'react-router-dom'
 import style from './scss/login.module.scss'
@@ -7,7 +6,6 @@ import 'antd/dist/antd.css';
 import  api  from '../service/request'
 export default function Login () {
     const to = useNavigate()
-
     const onFinish = (values: any) => {
         api.post('/login',{...values}).then((res) => {
             if (res.data.code===0) {
