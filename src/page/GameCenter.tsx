@@ -33,16 +33,14 @@ const App: any = (data: any) => {
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
-          >{
-            children.map((v:any,i:string) => {
-              return (<>
+          >
+            {
+            children.map((v:any,i:number) => {
+              return (
                 <Menu.Item key={i+1}><NavLink to={v.path}>{v.title}</NavLink></Menu.Item>
-              </>)
+             )
             })
           }
-            {/* <Menu.Item key="1"><NavLink to="">首页</NavLink></Menu.Item>
-            <Menu.Item key="2"><NavLink to="ListOne">列表一</NavLink></Menu.Item>
-            <Menu.Item key="3"> <NavLink to="ListTwe">列表二</NavLink></Menu.Item> */}
           </Menu>
         </Sider>
         <Content
@@ -61,7 +59,7 @@ const App: any = (data: any) => {
   );
 };
 export default function GameCenter() {
-  const [data, aa] = useState(0)
+  const [data] = useState(0)
   const dva: any = useRef()
   useEffect(() => {
   },)
@@ -74,7 +72,8 @@ export default function GameCenter() {
         return
       case 2:
         window.localStorage.removeItem('token')
-        to('/login')
+        window.location.reload()
+        // to('/login')
         return
     }
   }

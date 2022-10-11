@@ -4,8 +4,8 @@ import Routevive from './router/index'
 import './App.css'
 
 export default class App extends Component {
-  componentWillMount( ) {
-    // window.location.reload()
+  componentDidUpdate( ) {
+    window.location.reload()
   }
   render() {    
     return (

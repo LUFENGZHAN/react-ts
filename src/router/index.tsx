@@ -9,6 +9,11 @@ import HomePage from '../page/GameCenter/HomePage';
 import ListOne from '../page/GameCenter/ListOne';
 import ListTwe from '../page/GameCenter/ListTwe';
 export default class index extends Component {
+  componentDidUpdate( e: any ) {
+    console.log(e);
+    
+    window.location.reload()
+  }
   render() {
     return window.localStorage.getItem('token') ? (
         <Routes>
