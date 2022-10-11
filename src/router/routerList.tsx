@@ -1,4 +1,3 @@
-import {Navigate} from 'react-router-dom'
 import Home from '../page/Home';
 import Login from '../page/Login';
 import NoPage from '../components/NoPage/NoPage';
