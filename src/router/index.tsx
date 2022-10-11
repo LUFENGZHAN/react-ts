@@ -17,7 +17,7 @@ export default class index extends Component {
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/visualization" element={<Visualization/>}></Route>
           <Route path="/game-center" element={<GameCenter/>}>
-            <Route path="" element={<HomePage />} />
+            <Route index element={<HomePage />} />
             <Route path="ListOne" element={<ListOne />} />
             <Route path="ListTwe" element={<ListTwe />} />
           </Route>

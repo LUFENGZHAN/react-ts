@@ -11,7 +11,7 @@ export default function Login () {
             if (res.data.code===0) {
                 message.success(res.data.desc);       
                 window.localStorage.setItem('token',res.data.data.token)
-                to('/visualization')
+                to('/visualization',{replace:true})
                 if (window.localStorage.getItem('token')) {
                     window.location.reload()
                 }
