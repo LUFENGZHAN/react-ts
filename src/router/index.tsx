@@ -5,8 +5,9 @@ import Login from '../page/Login';
 import Visualization from '../page/Visualization';
 import GameCenter from '../page/GameCenter';
 import NoPage from '../components/NoPage/NoPage';
-import ListOne from '../components/GameCenter/ListOne';
-import ListTwe from '../components/GameCenter/ListTwe';
+import HomePage from '../page/GameCenter/HomePage';
+import ListOne from '../page/GameCenter/ListOne';
+import ListTwe from '../page/GameCenter/ListTwe';
 export default class index extends Component {
   render() {
     return window.localStorage.getItem('token') ? (
@@ -16,7 +17,8 @@ export default class index extends Component {
           <Route path="/login" element={<Login/>}></Route>
           <Route path="/visualization" element={<Visualization/>}></Route>
           <Route path="/game-center" element={<GameCenter/>}>
-            <Route path="" element={<ListOne />} />
+            <Route path="" element={<HomePage />} />
+            <Route path="ListOne" element={<ListOne />} />
             <Route path="ListTwe" element={<ListTwe />} />
           </Route>
           <Route path="*" element={<NoPage/>}></Route>

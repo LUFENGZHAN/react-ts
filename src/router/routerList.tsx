@@ -3,9 +3,10 @@ import Home from '../page/Home';
 import Login from '../page/Login';
 import NoPage from '../components/NoPage/NoPage';
 import Visualization from '../page/Visualization';
+import HomePage from '../page/GameCenter/HomePage';
 import GameCenter from '../page/GameCenter';
-import ListOne from '../components/GameCenter/ListOne';
-import ListTwe from '../components/GameCenter/ListTwe';
+import ListOne from '../page/GameCenter/ListOne';
+import ListTwe from '../page/GameCenter/ListTwe';
 const otherRouter = [
   {
     path: '/404',
@@ -46,7 +47,8 @@ const pageRouter = [
     children: [
       {
         path: "",
-        element: <Navigate to="ListOne" replace={true} />
+        title:'首页',
+        element: <HomePage/>
       },
       {
         path:'ListOne',

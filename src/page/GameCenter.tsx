@@ -2,7 +2,12 @@ import { useRef, useEffect, useState } from 'react'
 import { Layout, Menu } from 'antd';
 import style from './scss/GameCenter.module.scss'
 import { useNavigate, NavLink,Outlet } from 'react-router-dom'
+import {pageRouter} from '../router/routerList'
 import log from '../images/1.jpg'
+const menuList = pageRouter.filter((res:any) =>{
+  return res.title === '游戏中心'
+})
+const {children}:any = menuList[0]
 const { Header, Content, Sider } = Layout;
 const App: any = (data: any) => {
   return (
@@ -28,9 +33,16 @@ const App: any = (data: any) => {
             theme="dark"
             mode="inline"
             defaultSelectedKeys={['1']}
-          >
-            <Menu.Item key="1"><NavLink to="">列表一</NavLink></Menu.Item>
-            <Menu.Item key="2"> <NavLink to="ListTwe">列表二</NavLink></Menu.Item>
+          >{
+            children.map((v:any,i:string) => {
+              return (<>
+                <Menu.Item key={i+1}><NavLink to={v.path}>{v.title}</NavLink></Menu.Item>
+              </>)
+            })
+          }
+            {/* <Menu.Item key="1"><NavLink to="">首页</NavLink></Menu.Item>
+            <Menu.Item key="2"><NavLink to="ListOne">列表一</NavLink></Menu.Item>
+            <Menu.Item key="3"> <NavLink to="ListTwe">列表二</NavLink></Menu.Item> */}
           </Menu>
         </Sider>
         <Content
