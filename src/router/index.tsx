@@ -1,13 +1,13 @@
 import { Component } from 'react'
 import { Routes, Route,Navigate} from 'react-router-dom';
-import Home from '../page/Home';
-import Login from '../page/Login';
-import Visualization from '../page/Visualization';
-import GameCenter from '../page/GameCenter';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
+import Visualization from '../pages/Visualization';
+import GameCenter from '../pages/GameCenter';
 import NoPage from '../components/NoPage/NoPage';
-import HomePage from '../page/GameCenter/HomePage';
-import ListOne from '../page/GameCenter/ListOne';
-import ListTwe from '../page/GameCenter/ListTwe';
+import HomePage from '../pages/GameCenter/HomePage';
+import ListOne from '../pages/GameCenter/ListOne';
+import ListTwe from '../pages/GameCenter/ListTwe';
 export default class index extends Component {
   render() {
     return window.localStorage.getItem('token') ? (

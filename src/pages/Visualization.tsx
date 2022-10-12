@@ -10,7 +10,7 @@ export default function Visualization() {
     const to = useNavigate()
   return (
     <div className={style.container}>
-      <div onClick={() =>to('/home')}>写可视化echarts</div>
+      <div onClick={() =>to('/home')}>echarts</div>
     </div>
   )
 }

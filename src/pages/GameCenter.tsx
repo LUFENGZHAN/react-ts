@@ -15,7 +15,7 @@ const App: any = (data: any) => {
       <Header className={[style["site-layout-background"], style.text].join(' ')}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div className={style.imge} >
-            <div style={{ display: 'inline-block', cursor: 'pointer' }} ref={data.dva} onClick={() => data.the(1)}>返回首页</div>
+            <div style={{ display: 'inline-block', cursor: 'pointer' }} ref={data.dva} onClick={() => data.the(1)}>后台管理</div>
           </div>
         </div>
         <div className={style.rigth}>

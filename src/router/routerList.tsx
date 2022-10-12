@@ -1,11 +1,11 @@
-import Home from '../page/Home';
-import Login from '../page/Login';
+import Home from '../pages/Home';
+import Login from '../pages/Login';
 import NoPage from '../components/NoPage/NoPage';
-import Visualization from '../page/Visualization';
-import HomePage from '../page/GameCenter/HomePage';
-import GameCenter from '../page/GameCenter';
-import ListOne from '../page/GameCenter/ListOne';
-import ListTwe from '../page/GameCenter/ListTwe';
+import Visualization from '../pages/Visualization';
+import HomePage from '../pages/GameCenter/HomePage';
+import GameCenter from '../pages/GameCenter';
+import ListOne from '../pages/GameCenter/ListOne';
+import ListTwe from '../pages/GameCenter/ListTwe';
 const otherRouter = [
   {
     path: '/404',
