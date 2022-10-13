@@ -7,16 +7,17 @@ import  api  from '../service/request'
 export default function Login () {
     const to = useNavigate()
     const onFinish = (values: any) => {
-        api.post('/login',{...values}).then((res) => {
-            if (res.data.code===0) {
-                message.success(res.data.desc);       
-                window.localStorage.setItem('token',res.data.data.token)
+        api.post('/login',{...values}).then((res:any) => {           
+            if (res.code===0) {
+                message.success(res.desc);       
+                window.localStorage.setItem('token',res.data.token)
+                window.localStorage.setItem('name',res.data.name)
                 to('/visualization',{replace:true})
                 if (window.localStorage.getItem('token')) {
                     window.location.reload()
                 }
             } else {
-                message.error(res.data.data);
+                message.error(res.data);
             }
         })
     };

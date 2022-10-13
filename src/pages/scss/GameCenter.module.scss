@@ -74,9 +74,10 @@
 
         }
         & span{
+          display: inline-block;
           cursor: pointer;
           text-align: center;
-          padding: 0 15px;
+          padding: 0 20px;
           height: 20px;
         }
       }

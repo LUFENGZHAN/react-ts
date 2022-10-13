@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react'
-import { Layout, Menu } from 'antd';
+import { Layout, Menu ,Breadcrumb} from 'antd';
 import style from './scss/GameCenter.module.scss'
-import { useNavigate, NavLink,Outlet } from 'react-router-dom'
+import { useNavigate, NavLink,Outlet,useLocation } from 'react-router-dom'
 import {pageRouter} from '../router/routerList'
 import log from '../images/1.jpg'
 const menuList = pageRouter.filter((res:any) =>{
@@ -10,6 +10,9 @@ const menuList = pageRouter.filter((res:any) =>{
 const {children}:any = menuList[0]
 const { Header, Content, Sider } = Layout;
 const App: any = (data: any) => {
+const location =useLocation()
+const {pathname} =location
+const name =window.localStorage.getItem('name')
   return (
     <Layout>
       <Header className={[style["site-layout-background"], style.text].join(' ')}>
@@ -20,7 +23,7 @@ const App: any = (data: any) => {
         </div>
         <div className={style.rigth}>
           <img className={style.userlog} src={log} alt='log' />
-          <div className={style.hide} style={{ display: 'inline-block', cursor: 'pointer' }} >你好小站</div>
+          <div className={style.hide} style={{ display: 'inline-block', cursor: 'pointer' }} >你好 {name}</div>
           <div className={style.abe}>
             <span ref={data.dva} onClick={() => data.the(2)}>退出登录</span>
           </div>
@@ -32,12 +35,12 @@ const App: any = (data: any) => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={['1']}
+            defaultSelectedKeys={[pathname]}
           >
             {
-            children.map((v:any,i:number) => {
+            children.map((v:any) => { 
               return (
-                <Menu.Item key={i+1}><NavLink to={v.path}>{v.title}</NavLink></Menu.Item>
+                <Menu.Item key={v.key}><NavLink to={v.path}>{v.title}</NavLink></Menu.Item>
              )
             })
           }

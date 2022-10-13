@@ -47,15 +47,18 @@ const pageRouter = [
       {
         path: "",
         title:'首页',
+        key: '/game-center',
         element: <HomePage/>
       },
       {
         path:'ListOne',
         title:'列表一',
+        key: '/game-center/ListOne',
         element: <ListOne />,
       },
       {
         path:'ListTwe',
+        key: '/game-center/ListTwe',
         title:'列表二',
         element: <ListTwe />,
       }
