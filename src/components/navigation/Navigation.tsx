@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import style from './nav.module.scss'
 const route = [{ to: '/home', name: '首页', },

@@ -1,6 +1,6 @@
 import {createStore} from 'redux'
 import {reducer} from './reducer'
-
+const store = createStore(reducer)
 class ReducerStore {
     count = 0
     constructor(a: any){
@@ -13,5 +13,7 @@ class ReducerStore {
     }
     
 }
-export default ReducerStore
-export const store = createStore(reducer)
+export {
+    ReducerStore,
+    store
+}

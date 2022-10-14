@@ -1,4 +1,3 @@
-import React from 'react'
 import  style  from './scss/nopage.module.scss';
 import { useNavigate } from 'react-router-dom'
 

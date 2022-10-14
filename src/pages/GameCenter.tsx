@@ -1,5 +1,5 @@
-import { useRef, useEffect, useState } from 'react'
-import { Layout, Menu ,Breadcrumb} from 'antd';
+import { useEffect } from 'react'
+import { Layout, Menu } from 'antd';
 import style from './scss/GameCenter.module.scss'
 import { useNavigate, NavLink,Outlet,useLocation } from 'react-router-dom'
 import {pageRouter} from '../router/routerList'
@@ -18,14 +18,14 @@ const name =window.localStorage.getItem('name')
       <Header className={[style["site-layout-background"], style.text].join(' ')}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div className={style.imge} >
-            <div style={{ display: 'inline-block', cursor: 'pointer' }} ref={data.dva} onClick={() => data.the(1)}>后台管理</div>
+            <div style={{ display: 'inline-block', cursor: 'pointer' }}  onClick={() => data.the(1)}>后台管理</div>
           </div>
         </div>
         <div className={style.rigth}>
           <img className={style.userlog} src={log} alt='log' />
           <div className={style.hide} style={{ display: 'inline-block', cursor: 'pointer' }} >你好 {name}</div>
           <div className={style.abe}>
-            <span ref={data.dva} onClick={() => data.the(2)}>退出登录</span>
+            <span  onClick={() => data.the(2)}>退出登录</span>
           </div>
         </div>
       </Header>
@@ -62,27 +62,24 @@ const name =window.localStorage.getItem('name')
   );
 };
 export default function GameCenter() {
-  const [data] = useState(0)
-  const dva: any = useRef()
   useEffect(() => {
+    
   },)
   const to = useNavigate()
   const the: any = (e: number) => {
-
     switch (e) {
       case 1:
         to('/home')
         return
       case 2:
         window.localStorage.removeItem('token')
-        window.location.reload()
-        // to('/login')
+        to('/login')
         return
     }
   }
   return (
     <div className={style.container}>
-      <App data={data} the={the} dva={dva} />
+      <App the={the} />
     </div>
   )
 }
