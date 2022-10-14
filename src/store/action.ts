@@ -1,6 +1,6 @@
-export const sendAction =()=>{
+export const sendAction =(params: any)=>{
     return {
         type: 'lfz',
-        value: '不好'
+        ...params
     }
 }

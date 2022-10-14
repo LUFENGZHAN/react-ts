@@ -1,16 +1,18 @@
-import { Component } from 'react'
+import { Component,Suspense, lazy  } from 'react'
+
 import { Routes, Route,Navigate} from 'react-router-dom';
-import Home from '../pages/Home';
-import Login from '../pages/Login';
-import Visualization from '../pages/Visualization';
-import GameCenter from '../pages/GameCenter';
-import NoPage from '../components/NoPage/NoPage';
-import HomePage from '../pages/GameCenter/HomePage';
-import ListOne from '../pages/GameCenter/ListOne';
-import ListTwe from '../pages/GameCenter/ListTwe';
+const Home = lazy(() => import('../pages/Home'))
+const Login = lazy(() => import('../pages/Login'))
+const Visualization = lazy(() => import('../pages/Visualization'))
+const GameCenter = lazy(() => import('../pages/GameCenter'))
+const NoPage = lazy(() => import('../components/NoPage/NoPage'))
+const HomePage = lazy(() => import('../pages/GameCenter/HomePage'))
+const ListOne = lazy(() => import('../pages/GameCenter/ListOne'))
+const ListTwe = lazy(() => import('../pages/GameCenter/ListTwe'))
 export default class index extends Component {
   render() {
     return window.localStorage.getItem('token') ? (
+      <Suspense fallback={<div style={{color: '#000',width:'200px',background: '#fff',fontSize: '18px',margin: '250px auto'}}>加载中...</div>}>
         <Routes>
           <Route path="/" element={<Visualization/>}></Route>
           <Route path="/home" element={<Home/>}></Route>
@@ -23,11 +25,15 @@ export default class index extends Component {
           </Route>
           <Route path="*" element={<NoPage/>}></Route>
         </Routes>
+        </Suspense>
     ):(
-      <Routes>
-        <Route path="*" element={<Navigate to="/login" />}></Route>
-        <Route path="/login" element={<Login/>}></Route>
-      </Routes>
+      <Suspense fallback={<div style={{color: '#000',width:'200px',background: '#fff',fontSize: '18px',margin: '250px auto'}}>加载中...</div>}>
+        <Routes>
+          <Route path="*" element={<Navigate to="/login" />}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+        </Routes>
+      </Suspense>
+
 
       
     )
