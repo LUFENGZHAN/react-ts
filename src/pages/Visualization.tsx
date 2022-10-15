@@ -18,7 +18,7 @@ function Visualization(e: any) {
     )
 }
 // echarts
-
+window.api.user.login2()
 // 全局状态
 const value = (e: any) =>{
   return e

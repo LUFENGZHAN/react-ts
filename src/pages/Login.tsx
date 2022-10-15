@@ -20,7 +20,6 @@ export default function Login () {
             }
         })
     };
-
     const onFinishFailed = (errorInfo: any) => {
     };
         return (

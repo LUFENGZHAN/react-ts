@@ -1,6 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
-
-export default { 
+ const api = { 
     login(data?: any){
         return window.common.request({
             url:`/login`,
@@ -8,5 +6,12 @@ export default {
             data
         })
     },
-
+    login2(data?: any){
+        return window.common.request({
+            url:`/login`,
+            method: 'POST',
+            data
+        })
+    },
 }
+export default api;
