@@ -3,11 +3,10 @@ import { useNavigate } from 'react-router-dom'
 import style from './scss/login.module.scss'
 import Bg from 'particles-bg'
 import 'antd/dist/antd.css';
-import  api  from '../service/request'
 export default function Login () {
     const to = useNavigate()
-    const onFinish = (values: any) => {
-        api.post('/login',{...values}).then((res:any) => {           
+    const onFinish = (values: any) => {  
+        window.api.user.login({...values}).then((res:any) => {           
             if (res.code===0) {
                 message.success(res.desc);       
                 window.localStorage.setItem('token',res.data.token)

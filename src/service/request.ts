@@ -1,10 +1,9 @@
 import { ipList } from "./ipconfig";
 import { message } from 'antd';
-
 import axios from "axios";
 const codeis = [0,200]
-const api = axios.create({ baseURL: ipList.PRESENT_IP, timeout: ipList.TIME });
-api.interceptors.request.use(
+const common = axios.create({ baseURL: ipList.PRESENT_IP, timeout: ipList.TIME });
+common.interceptors.request.use(
     (config) => { 
         let token = localStorage.getItem("token")
         if (token && config.headers) {
@@ -13,7 +12,7 @@ api.interceptors.request.use(
         return config;
     },
 )
-api.interceptors.response.use(
+common.interceptors.response.use(
     (config) =>{    
         if (codeis.includes(config.status)) {
             return config.data      
@@ -22,4 +21,10 @@ api.interceptors.response.use(
         }
     }
 )
-export default api;
+declare global {
+    interface Window {
+        common: typeof common
+    }
+}
+export default window.common=common; 
+

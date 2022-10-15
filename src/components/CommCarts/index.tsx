@@ -1,6 +1,6 @@
 import {useEffect} from 'react'
 import * as echarts from 'echarts';
-export default function REcharts(data: any) {
+export default function CommCarts(data: any) {
    
     useEffect(() =>{
         let myChart= echarts.init(document.getElementById(data.id) as any);
