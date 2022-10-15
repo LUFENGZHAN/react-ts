@@ -2,6 +2,7 @@ import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import  style  from './scss/Visualization.module.scss'
+import Map from '../components/Comm/Map'
 function apiList (){      
  window.api.user.login({username:'admin', password:"123456"})
 }
@@ -14,6 +15,7 @@ function Visualization(e: any) {
     return (
       <div className={style.container}>
         <div onClick={() =>to('/home')}>echarts</div>
+        <Map/>
       </div>
     )
 }
