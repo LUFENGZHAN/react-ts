@@ -1,6 +1,7 @@
 import {useEffect} from 'react'
 import {connect} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import NavTop from '../components/navigation/NavTop'
 import  style  from './scss/Visualization.module.scss'
 import Map from '../components/Comm/Map'
 function apiList (){      
@@ -10,17 +11,21 @@ function Visualization(e: any) {
     const to = useNavigate()
     useEffect(() =>{
       apiList()
+      chartData()
     },[])
    
     return (
       <div className={style.container}>
-        <div onClick={() =>to('/home')}>echarts</div>
+        <NavTop/>
+        {/* <div onClick={() =>to('/home')}>echarts</div> */}
         <Map/>
       </div>
     )
 }
 // echarts
-window.api.user.login2()
+const chartData = ()=>{
+
+}
 // 全局状态
 const value = (e: any) =>{
   return e
