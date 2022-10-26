@@ -1,7 +1,8 @@
 .bg{
-    width: 400px;
+    position:absolute;
+    width: 380px;
     margin:0 10px 0;
-    height: 850px;
+    height:calc(100vh - 65px);
     background: url('../../images/bg_1.png') no-repeat 100% / 100% 100%;
     h2{
         margin-top: 0;

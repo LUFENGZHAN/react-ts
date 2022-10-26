@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
-import { useNavigate } from 'react-router-dom'
 import NavTop from '../components/navigation/NavTop'
 import  style  from './scss/Visualization.module.scss'
 import Map from '../components/Comm/Map'
@@ -18,10 +17,10 @@ function Visualization(e: any) {
     return (
       <div className={style.container}>
         <NavTop/>
-        <div className={style.contet}>
+        {/* <div className={style.contet}> */}
         <LeftLayout/>
         <RightLayout/>
-        </div>
+        {/* </div> */}
         <Map datae={dataMap}/>
       </div>
     )
