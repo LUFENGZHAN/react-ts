@@ -2,6 +2,7 @@ import { Component } from 'react';
 import style from './scss/home.module.scss';
 import Bg from 'particles-bg'
 import Navigation from '../components/navigation/Navigation'
+let he = document.body
 class Home extends Component {
     state = {
         num:1,

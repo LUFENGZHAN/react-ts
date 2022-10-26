@@ -6,18 +6,11 @@ import 'antd/dist/antd.css';
 export default function Login () {
     const to = useNavigate()
     const onFinish = (values: any) => {  
-        window.api.user.login({...values}).then((res:any) => {           
-            if (res.code===0) {
+        window.api.user.login({...values}).then((res:any) => {                
                 message.success(res.desc);       
                 window.localStorage.setItem('token',res.data.token)
                 window.localStorage.setItem('name',res.data.name)
                 to('/visualization',{replace:true})
-                if (window.localStorage.getItem('token')) {
-                    window.location.reload()
-                }
-            } else {
-                message.error(res.data);
-            }
         })
     };
     const onFinishFailed = (errorInfo: any) => {

@@ -1,30 +1,36 @@
-import {useEffect} from 'react'
+import {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import NavTop from '../components/navigation/NavTop'
 import  style  from './scss/Visualization.module.scss'
 import Map from '../components/Comm/Map'
-function apiList (){      
- window.api.user.login({username:'admin', password:"123456"})
-}
+import RightLayout from './Visualization/RightLayout'
+import LeftLayout from './Visualization/LeftLayout'
 function Visualization(e: any) {
-    const to = useNavigate()
+  const [dataMap,setdataMap] = useState([])
     useEffect(() =>{
-      apiList()
+      window.api.data.list_more().then((res: any) => {
+        setdataMap(res.data.mapdata)
+       })
       chartData()
     },[])
    
     return (
       <div className={style.container}>
         <NavTop/>
-        {/* <div onClick={() =>to('/home')}>echarts</div> */}
-        <Map/>
+        <div className={style.contet}>
+        <LeftLayout/>
+        <RightLayout/>
+        </div>
+        <Map datae={dataMap}/>
       </div>
     )
 }
 // echarts
 const chartData = ()=>{
+  return{
 
+  }
 }
 // 全局状态
 const value = (e: any) =>{

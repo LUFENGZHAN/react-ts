@@ -13,8 +13,8 @@ common.interceptors.request.use(
     },
 )
 common.interceptors.response.use(
-    (config) =>{    
-        if (codeis.includes(config.status)) {
+    (config) =>{         
+        if (codeis.includes(config.data.code)) {
             return config.data      
         } else {
             return message.error('接口错误') 
