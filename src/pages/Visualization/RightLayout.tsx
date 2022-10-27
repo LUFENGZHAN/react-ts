@@ -28,6 +28,7 @@ export default function RightLayout() {
 
         </div>
         <div className='cont_1'>
+        <p></p>
         </div>
       </div>
     </div>

@@ -12,10 +12,13 @@
     }
     .cont{
         width: 100%;
-        height: 100%;
+        display: flex;
+        flex-direction: column;
+        height: calc(100vh - 110px);
+        box-sizing: border-box;
         .cont_1{
             width: 100%;
-            height: 200px;
+            flex:1;
             overflow: hidden;
             box-sizing: border-box;
             & p{

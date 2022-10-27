@@ -51,7 +51,10 @@ function LeftLayout() {
                     <p></p>
                     <CommCarts id="bar" data={chartData(lner, bar, pie).option3} />
                 </div>
-                <div className="cont_1"></div>
+                <div className="cont_1">
+                  <p></p>
+
+                </div>
             </div>
         </div>
     );
@@ -114,7 +117,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
             },
         },
         grid: {
-            left: "0%",
+            left: "2%",
             right: "8%",
             bottom: "0%",
             containLabel: true,
@@ -155,10 +158,10 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
                 type: "bar",
                 stack: "total",
                 label: {
-                    show: true,
+                    show: false,
                     textStyle: {
-                        fontSize: 8,
-                        color: "#000",
+                        fontSize: 18,
+                        color: "#fff",
                     },
                 },
                 emphasis: {
@@ -220,7 +223,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
                     width: 0,
                 },
                 label: {
-                    show: true,
+                    show: false,
                     textStyle: {
                         fontSize: 8,
                         color: "#000",
