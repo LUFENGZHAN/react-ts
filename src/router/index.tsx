@@ -1,14 +1,14 @@
 import { Component,Suspense, lazy  } from 'react'
 
 import { Routes, Route,Navigate} from 'react-router-dom';
-const Home = lazy(() => import('../pages/Home'))
-const Login = lazy(() => import('../pages/Login'))
-const Visualization = lazy(() => import('../pages/Visualization'))
-const GameCenter = lazy(() => import('../pages/GameCenter'))
-const NoPage = lazy(() => import('../components/NoPage/NoPage'))
-const HomePage = lazy(() => import('../pages/GameCenter/HomePage'))
-const ListOne = lazy(() => import('../pages/GameCenter/ListOne'))
-const ListTwe = lazy(() => import('../pages/GameCenter/ListTwe'))
+const Home = lazy(() => import('@/pages/Home'))
+const Login = lazy(() => import('@/pages/Login'))
+const Visualization = lazy(() => import('@/pages/Visualization'))
+const GameCenter = lazy(() => import('@/pages/GameCenter'))
+const NoPage = lazy(() => import('@/components/NoPage/NoPage'))
+const HomePage = lazy(() => import('@/pages/GameCenter/HomePage'))
+const ListOne = lazy(() => import('@/pages/GameCenter/ListOne'))
+const ListTwe = lazy(() => import('@/pages/GameCenter/ListTwe'))
 export default class index extends Component {
   render() {
     return window.localStorage.getItem('token') ? (

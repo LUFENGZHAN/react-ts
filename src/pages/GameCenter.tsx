@@ -2,8 +2,8 @@ import { useEffect } from 'react'
 import { Layout, Menu } from 'antd';
 import style from './scss/GameCenter.module.scss'
 import { useNavigate, NavLink,Outlet,useLocation } from 'react-router-dom'
-import {pageRouter} from '../router/routerList'
-import log from '../images/1.jpg'
+import {pageRouter} from '@/router/routerList'
+import log from '@/images/1.jpg'
 const menuList = pageRouter.filter((res:any) =>{
   return res.title === '游戏中心'
 })
@@ -14,7 +14,7 @@ const location =useLocation()
 const {pathname} =location
 const name =window.localStorage.getItem('name')
   return (
-    <Layout>
+    <Layout style={{height:'100vh'}}>
       <Header className={[style["site-layout-background"], style.text].join(' ')}>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <div className={style.imge} >

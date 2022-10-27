@@ -1,8 +1,8 @@
 import {useEffect, useState} from 'react'
 import {connect} from 'react-redux'
-import NavTop from '../components/navigation/NavTop'
+import NavTop from '@/components/navigation/NavTop'
 import  style  from './scss/Visualization.module.scss'
-import Map from '../components/Comm/Map'
+import Map from '@/components/Comm/Map'
 import RightLayout from './Visualization/RightLayout'
 import LeftLayout from './Visualization/LeftLayout'
 function Visualization(e: any) {
@@ -17,18 +17,23 @@ function Visualization(e: any) {
     return (
       <div className={style.container}>
         <NavTop/>
-        {/* <div className={style.contet}> */}
         <LeftLayout/>
         <RightLayout/>
-        {/* </div> */}
         <Map datae={dataMap}/>
       </div>
     )
 }
 // echarts
 const chartData = ()=>{
-  return{
+  let option ={
+    
+  }
+  let option2 ={
 
+  }
+  return{
+    option,
+    option2
   }
 }
 // 全局状态

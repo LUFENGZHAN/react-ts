@@ -7,7 +7,7 @@ export default function CommCarts(data: any) {
             myChart.setOption(data.data) 
     },[data])
   return (
-    <div id={data.id} style={{height:'100%',width:'100%'}}/>
+    <div id={data.id} style={{height:'calc(100% - 20px)',width:'100%'}}/>
   )
 }
 
