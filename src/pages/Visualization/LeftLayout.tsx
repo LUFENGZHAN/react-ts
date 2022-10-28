@@ -16,22 +16,18 @@ function LeftLayout() {
                     .filter((v: any) => {
                         return v.title !== "-";
                     })
-                    .splice(0, 10)
             );
         });
         window.api.data.list_region().then((res: any) => {
             setpie(
                 res.data.list
                     .filter((v: any,i:number,arr:any) => {
-                        return v.title !== "-" && arr.indexOf(v) == i
+                        return v.title !== "-" && arr.indexOf(v) === i
                     })
-                    .splice(0, 15)
             );
         });
         window.api.signin.bool().then((res: any) => {
-            console.log(res.data);
-
-            // setlner(res.data.list.filter((v:any) => {return v.title !== '-'}))
+            setlist(res.data.list.filter((v:any) => {return v.title !== '-'}))
         });
     }, []);
     useEffect(() => {});
@@ -40,28 +36,28 @@ function LeftLayout() {
             <h2>数据面板</h2>
             <div className="cont">
                 <div className="cont_1">
-                    <p></p>
+                    <p/>
                     <CommCarts id="pie" data={chartData(lner, bar, pie).option} />
                 </div>
                 <div className="cont_1">
-                    <p></p>
+                    <p/>
                     <CommCarts id="lner" data={chartData(lner, bar, pie).option2} />
                 </div>
                 <div className="cont_1">
-                    <p></p>
+                    <p/>
                     <CommCarts id="bar" data={chartData(lner, bar, pie).option3} />
                 </div>
-                <div className="cont_1">
-                  <p></p>
+                {/* <div className="cont_1">
+                  <p/>
+                    <div>
 
-                </div>
+                    </div>
+                </div> */}
             </div>
         </div>
     );
 }
-const chartData = (lner?: any, bar?: any, pie?: any) => {
-  console.log(pie);
-  
+const chartData = (lner?: any, bar?: any, pie?: any) => { 
     let option = {
         legend: {
             type: "scroll",
@@ -143,7 +139,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
             orient: "time",
             type: "category",
             axisLabel: {
-                // interval:0,
+                interval:0,
                 textStyle: {
                     color: "#fff",
                 },
@@ -152,6 +148,29 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
                 return v.title;
             }),
         },
+        dataZoom: [
+            {
+              show: false,
+              start: 0,
+              end: 40
+            },
+            {
+              type: 'inside',
+              start: 94,
+              end: 100
+            },
+            {
+              show: true,
+              yAxisIndex: 0,
+              start: 0,
+              end: 50,
+              filterMode: 'empty',
+              width: 20,
+              height: '80%',
+              showDataShadow: false,
+              left: '93%'
+            }
+          ],
         series: bar.map((v: any) => {
             return {
                 name: v.title,
@@ -166,6 +185,10 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
                 },
                 emphasis: {
                     focus: "series",
+                    textStyle: {
+                        fontSize: 18,
+                        color: "#fff",
+                    },
                 },
                 data: v.list.map((item: any) => {
                     return item.value;
@@ -183,7 +206,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
             },
         },
         grid: {
-            left: "3%",
+            left: "10%",
             right: "4%",
             bottom: "3%",
             containLabel: true,
@@ -195,6 +218,12 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
                 data: pie.map((v: any) => {
                     return v.title;
                 }),
+                axisLabel: {
+                    interval:0,
+                    textStyle: {
+                        color: "#fff",
+                    },
+                },
             },
         ],
         yAxis: [
@@ -213,6 +242,32 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
                 },
             },
         ],
+        dataZoom: [
+            {
+              show: true,
+              start: 0,
+              end: 40,
+              height:20,
+              width: 50,
+              left: '0%',
+              bottom:1,
+
+            },
+            {
+              type: 'inside',
+              start: 94,
+              end: 100
+            },
+            {
+              show: false,
+              yAxisIndex: 0,
+              filterMode: 'empty',
+              width: 20,
+              height: '20%',
+              showDataShadow: true,
+              left: '0%'
+            }
+          ],
         series: pie.map((v: any) => {
             return {
                 name: v.title,

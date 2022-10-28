@@ -40,6 +40,32 @@
                     background:radial-gradient(#fff,rgba(0, 0, 0, 0.123));
                 }
             }
+            .progress{
+                width: calc(100% - 50px);
+                margin: 15px;
+                transition: all 2s;
+                color: #fff;
+                animation: prog 25s linear infinite;
+                .ant-progress{
+                    display: flex;
+                    align-items: center;
+                    .ant-progress-outer{
+                        flex:1
+                    }
+                }
+                @keyframes prog {
+                    0%{
+                        transform: translateY(0%)
+                    }
+                    99%{
+                        transform: translateY(-100%)
+                    }
+                    100%{
+                        transform: translateY(-100%)
+                    }
+                }
+            }
+            
         }
     }
 }
