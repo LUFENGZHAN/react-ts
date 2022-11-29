@@ -42,23 +42,24 @@ import { Progress } from 'antd';
         </div>
         <div className='cont_1'>
           <p/>
-          <div className='progress'>
-            {list.map((v:any) =>{
-              return(
-                <div className='props'>
-                <span>{v.name}</span>
-                <Progress
-                strokeColor={{
-                  '0%': '#108ee9',
-                  '100%': '#87d068',
-                }}
-                percent={v.wd.toFixed(2)}
-                status="active"
-              />
+          <div style={{overflow: 'hidden'}}>
+              <div className='progress'>
+                {list.map((v:any,i) =>{
+                  return(
+                    <div className='props'>
+                    <span key={i}>{v.name}</span>
+                    <Progress
+                    strokeColor={{
+                      '0%': '#108ee9',
+                      '100%': '#87d068',
+                    }}
+                    percent={v.wd.toFixed(2)}
+                    status="active"
+                  />
+                  </div>
+                  )
+                })}
               </div>
-              )
-            })}
-          
           </div>
         </div>
         {/* <div className='cont_1'>
