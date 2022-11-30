@@ -64,6 +64,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
             width: "200px",
             orient: "vertical",
             left: "15",
+            buttom: "15",
             formatter: (e: any) => {
                 return e.substring(0, 3);
             },
@@ -115,7 +116,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
         grid: {
             left: "2%",
             right: "8%",
-            bottom: "0%",
+            bottom: "6%",
             containLabel: true,
         },
         xAxis: {
@@ -166,7 +167,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
               end: 50,
               filterMode: 'empty',
               width: 20,
-              height: '80%',
+              height: '70%',
               showDataShadow: false,
               left: '93%'
             }
@@ -208,7 +209,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
         grid: {
             left: "10%",
             right: "4%",
-            bottom: "3%",
+            bottom: "10%",
             containLabel: true,
         },
         xAxis: [
@@ -250,7 +251,7 @@ const chartData = (lner?: any, bar?: any, pie?: any) => {
               height:20,
               width: 50,
               left: '0%',
-              bottom:1,
+              bottom:'10%',
 
             },
             {

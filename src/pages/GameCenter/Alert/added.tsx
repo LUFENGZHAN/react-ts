@@ -1,6 +1,8 @@
 import React, { useState,useImperativeHandle,useEffect,forwardRef } from 'react';
 import { Button, Modal } from 'antd';
- function Added({date}:any,ref:any) {
+ function Added(props:any,ref:any) {
+  const {title}= props
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   useImperativeHandle(
     ref,
@@ -23,7 +25,7 @@ import { Button, Modal } from 'antd';
   };
   return (
     <>
-    <Modal title="Basic Modal" visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+    <Modal title={title} visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
       <p>Some contents...</p>
       <p>Some contents...</p>
       <p>Some contents...</p>

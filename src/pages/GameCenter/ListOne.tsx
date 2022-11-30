@@ -6,27 +6,30 @@ const { Column, ColumnGroup } = Table;
 export default function ListOne() {
 	const modal:any = useRef(null)
 	let [date,setdate] = useState([])
+	let [row,setrow] = useState()
+	let [title,settitles] = useState()
 	useEffect(()=>{
 		window.api.signin.province.list().then((res:any) => {
 			setdate(res.data.list.map((value: any, index: any) => {
 				return {
 					...value,
-					key:index
+					key:index+1
 				}
 			}))
 		  })	  
 	},[modal])
 	return (
 		<div>
-			<ATable date={date} modal={modal}/>
-			<Added ref={modal}/>
+			<ATable date={date} modal={modal} settitles={settitles} setrow={setrow}/>
+			<Added ref={modal} title={title} row={row}/>
 		</div>
 	)
 }
 const ATable = (props:any) => {
-	const {date,modal} = props
+	const {date,modal,settitles,setrow} = props
 	const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 	const [loading, setLoading] = useState(false);
+
 	const start = () => {
 		setLoading(true);
 		setTimeout(() => {
@@ -34,7 +37,37 @@ const ATable = (props:any) => {
 			setLoading(false);
 		}, 1000);
 	};
-
+	const columns: any = [
+		{
+			title: '标题',
+			dataIndex: 'title',
+			key: 'title',
+			width: 200,
+			align: 'center'
+		},
+		{
+			title: '内容',
+			dataIndex: 'value',
+			key: 'value',
+			width: 200,
+			align: 'center'
+	
+		},
+		{
+			title: '操作',
+			key: 'action',
+			width: 200,
+			align: 'center',
+			render: (_: any,date: any) => {
+				return (
+					<div>
+						<Button type="link" onClick={()=>add('修改数据',date)}>修改</Button>
+						<Button type="link" danger onClick={()=>Delete(date.key)}>删除</Button>
+					</div>
+				)
+			},
+		},
+	];
 	const onSelectChange = (newSelectedRowKeys: any, selectedRows: any, info: any) => {
 
 		setSelectedRowKeys(newSelectedRowKeys);
@@ -44,8 +77,17 @@ const ATable = (props:any) => {
 		selectedRowKeys,
 		onChange: onSelectChange,
 	};
-	const add = () => {
+
+	const add = (trpe?:string,row?:any) => {
+		console.log(row);
+		
+		settitles(trpe)
+		setrow(row)
 		modal.current?.showModal()
+	}
+	const Delete = (id:string) =>{
+		console.log(id);
+		
 	}
 	const hasSelected = selectedRowKeys.length > 0;
 	return (
@@ -60,14 +102,14 @@ const ATable = (props:any) => {
 					</span>
 				</div>
 				<div>
-					<Button style={{ marginRight: 18 }} type="primary" onClick={add}>
+					<Button style={{ marginRight: 18 }} type="primary" onClick={()=>add('新增数据')}>
 						新增
 					</Button>
 				</div>
 			</div>
 
 			<Table bordered rowSelection={rowSelection} columns={columns} dataSource={date} pagination={{
-				total: data.length,
+				total: date.length,
 				defaultCurrent: 1,
 				pageSize: 10,
 				showQuickJumper: true,
@@ -78,35 +120,3 @@ const ATable = (props:any) => {
 		</div>
 	);
 }
-const columns: any = [
-	{
-		title: '标题',
-		dataIndex: 'title',
-		key: 'title',
-		width: 200,
-		align: 'center'
-	},
-	{
-		title: '内容',
-		dataIndex: 'value',
-		key: 'value',
-		width: 200,
-		align: 'center'
-
-	},
-	{
-		title: '操作',
-		key: 'action',
-		width: 200,
-		align: 'center',
-		render: () => {
-			return (
-				<div>
-					<Button type="link">修改</Button>
-					<Button type="link" danger>删除</Button>
-				</div>
-			)
-		},
-	},
-];
-let data: any = [];
