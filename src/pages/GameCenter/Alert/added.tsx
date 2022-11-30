@@ -1,7 +1,34 @@
-import React from 'react'
+import React, { useState,useImperativeHandle,useEffect,forwardRef } from 'react';
+import { Button, Modal } from 'antd';
+ function Added({date}:any,ref:any) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  useImperativeHandle(
+    ref,
+    ()=>({
+        showModal(){
+          showModal() 
+        }
+    })
+  )
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
 
-export default function added() {
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   return (
-    <div>added</div>
+    <>
+    <Modal title="Basic Modal" visible={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+      <p>Some contents...</p>
+    </Modal>
+  </>
   )
 }
+export default forwardRef(Added)

@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,useRef } from 'react'
+import Added from './Alert/Added';
 import './scss/index.scss'
 import { Pagination, ConfigProvider, Table, Button, Space } from 'antd';
-import text from '../../../text.json';
 const { Column, ColumnGroup } = Table;
 export default function ListOne() {
+	const modal:any = useRef(null)
 	let [date,setdate] = useState([])
 	useEffect(()=>{
 		window.api.signin.province.list().then((res:any) => {
@@ -13,20 +14,20 @@ export default function ListOne() {
 					key:index
 				}
 			}))
-		  })
-	},[])
+		  })	  
+	},[modal])
 	return (
 		<div>
-			<ATable date={date}/>
+			<ATable date={date} modal={modal}/>
+			<Added ref={modal}/>
 		</div>
 	)
 }
-const ATable = ({date}:any) => {
+const ATable = (props:any) => {
+	const {date,modal} = props
 	const [selectedRowKeys, setSelectedRowKeys] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const start = () => {
-		console.log(selectedRowKeys);
-
 		setLoading(true);
 		setTimeout(() => {
 			setSelectedRowKeys([]);
@@ -43,6 +44,9 @@ const ATable = ({date}:any) => {
 		selectedRowKeys,
 		onChange: onSelectChange,
 	};
+	const add = () => {
+		modal.current?.showModal()
+	}
 	const hasSelected = selectedRowKeys.length > 0;
 	return (
 		<div>
@@ -106,7 +110,3 @@ const columns: any = [
 	},
 ];
 let data: any = [];
-
-const add = () => {
-
-}
