@@ -123,6 +123,7 @@ const ATable = (props: any) => {
 				total: date.length,
 				defaultCurrent: 1,
 				pageSize: 10,
+				showSizeChanger:false,
 				showQuickJumper: true,
 				showTotal: (total) => `共 ${total} 条`
 			}}>
