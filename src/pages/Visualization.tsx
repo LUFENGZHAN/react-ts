@@ -11,7 +11,6 @@ function Visualization(e: any) {
       window.api.data.list_more().then((res: any) => {
         setdataMap(res.data.mapdata)
        })
-      chartData()
     },[])
    
     return (
@@ -22,19 +21,6 @@ function Visualization(e: any) {
         <Map datae={dataMap}/>
       </div>
     )
-}
-// echarts
-const chartData = ()=>{
-  let option ={
-    
-  }
-  let option2 ={
-
-  }
-  return{
-    option,
-    option2
-  }
 }
 // 全局状态
 const value = (e: any) =>{

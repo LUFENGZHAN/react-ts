@@ -47,7 +47,7 @@ function AMap(data?: any){
         data.datae.forEach((item:any) =>{
             ellipse = new AMap.Ellipse({
                 center: [item.jd, item.wd],
-                radius: [ 1000, 1000 ], //半径
+                radius: [ 10000, 10000 ], //半径
                 borderWeight: 0,
                 strokeColor: "#FF33FF", 
                 strokeOpacity: 1,
@@ -61,17 +61,18 @@ function AMap(data?: any){
             })
             marker = new AMap.Marker({
                 map: map,
-                icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
-                position: [item.jd, item.wd],
+                icon: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png',
+                offset: new AMap.Pixel(-10, -22),
+                position: new AMap.LngLat(item.jd, item.wd),
             });
-            marker.on('click',openInfo)
+            marker.on('click',()=>{openInfo(item.jd, item.wd)})
             map.add(ellipse);
         })
     } else{
         mapip.forEach(item =>{
             ellipse = new AMap.Ellipse({
                 center: [item.le, item.len],
-                radius: [ 100, 100 ], //半径
+                radius: [ 500, 500 ], //半径
                 borderWeight: 0,
                 strokeColor: "#FF33FF", 
                 strokeOpacity: 1,
@@ -85,28 +86,27 @@ function AMap(data?: any){
             })
             marker = new AMap.Marker({
                 map: map,
-                icon: "https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png",
-                position: [item.le, item.len],
+                offset: new AMap.Pixel(-10, -22),
+                icon: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b.png',
+                position: new AMap.LngLat(item.le, item.len),
             });
             map.add(ellipse);
-            marker.on('click',openInfo)
+            marker.on('click',()=>{openInfo(item.le, item.len)})
         })
     }
-    function openInfo() {
+    function openInfo(lng: any,lat: any) {   
         //构建信息窗体中显示的内容
         var info = [];
-        info.push("<div><div><img style=\"float:left;\" src=\" https://webapi.amap.com/images/autonavi.png \"/></div> ");
         info.push("<div style=\"padding:0px 0px 0px 4px;\"><b>高德软件</b>");
         info.push("电话 : 010-84107000   邮编 : 100102");
         info.push("地址 :北京市朝阳区望京阜荣街10号首开广场4层</div></div>");
         infoWindow = new AMap.InfoWindow({
-            content: info.join("<br/>")  //使用默认信息窗体框样式，显示信息内容
+            content: info.join("<br/>"),  //使用默认信息窗体框样式，显示信息内容
+            position:[lng,lat], 
+            offset:[0,-19],
         });
-        infoWindow.open(map, map.getCenter());
+        infoWindow.open(map, [lng,lat]);
 
-    }
-    function closeInfo() {
-        infoWindow.close();
-    }   
+    } 
     map.setFitView(null, false, [-150, -150, -250, -250]);              
 }
